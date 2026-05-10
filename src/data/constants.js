@@ -200,7 +200,7 @@ export const projects = [
     description:
       "Developed a full-stack portfolio website using React Three Fiber and Three.js to create an interactive 3D experience. The website features a visually engaging design with smooth animations and transitions, showcasing projects and skills in a unique way.",
     image:
-      "",
+      "https://github.com/AdarshJha05/3D-Portfolio/blob/main/public/portfolioImage.png?raw=true",
     tags: ["React Js", "MongoDb", "Node Js", "Express Js", "Three.js", "JWT", "React Three Fiber", "Firebase"],
     category: "web app",
     github: "https://github.com/AdarshJha05/3D-Portfolio",
