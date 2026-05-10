@@ -91,7 +91,7 @@ const CardContainer = styled.div`
 `;
 
 const Projects = () => {
-  const [toggle, setToggle] = useState("all");
+  // const [toggle, setToggle] = useState("all");
   return (
     <Container id="Projects">
       <Wrapper>
@@ -101,11 +101,10 @@ const Projects = () => {
             marginBottom: "40px",
           }}
         >
-          I have worked on a wide range of projects. From web apps to android
-          apps. Here are some of my projects.
+          I have worked on a wide range of projects.Here are some of my projects.
         </Desc>
 
-        <ToggleButtonGroup>
+        {/* <ToggleButtonGroup>
           <ToggleButton
             active={toggle === "all"}
             onClick={() => setToggle("all")}
@@ -133,13 +132,11 @@ const Projects = () => {
           >
             MACHINE LEARNING
           </ToggleButton>
-        </ToggleButtonGroup>
+        </ToggleButtonGroup> */}
 
         <CardContainer>
-          {toggle === "all" &&
-            projects.map((project) => <ProjectCard project={project} />)}
           {projects
-            .filter((item) => item.category === toggle)
+            
             .map((project) => (
               <ProjectCard project={project} />
             ))}
