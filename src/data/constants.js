@@ -213,7 +213,7 @@ export const projects = [
     description:
       "A dynamic and user-friendly e-commerce website. This project aims to provide a seamless online food ordering experience for users, featuring a responsive design for optimal viewing across devices.",
     image:
-      "",
+      "https://github.com/AdarshJha05/3D-Portfolio/blob/main/public/foodApp.png?raw=true",
     tags: [
       "JavaScript",
       "React Js",
@@ -235,7 +235,7 @@ export const projects = [
     description:
       "A real-time chat app with private messaging, user authentication, live typing indicators, and a responsive UI for both desktop and mobile devices.",
     image:
-      "",
+      "https://github.com/AdarshJha05/3D-Portfolio/blob/main/public/chatApp.png?raw=true",
     tags: [
       "JavaScript",
       "React Js",
