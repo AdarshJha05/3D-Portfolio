@@ -2,9 +2,6 @@
   "name": "3d-portfolio-website",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-    "node": "18.x"
-  },
   "dependencies": {
     "@emailjs/browser": "^4.1.0",
     "@emotion/react": "^11.11.3",
@@ -35,7 +32,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start --no-source-maps",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
