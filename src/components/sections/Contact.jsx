@@ -107,12 +107,12 @@ const ContactButton = styled.input`
 const Contact = () => {
   const form = useRef();
 
-  const [formData, setFormData] = useState({
-  from_email: "",
-  from_name: "",
-  subject: "",
-  message: "",
-});
+//   const [formData, setFormData] = useState({
+//   from_email: "",
+//   from_name: "",
+//   subject: "",
+//   message: "",
+// });
   const handelSubmit = async (e) => {
   e.preventDefault();
 
