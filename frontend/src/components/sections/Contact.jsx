@@ -118,11 +118,11 @@ const Contact = () => {
 
     try {
       const res = await emailjs.sendForm(
-        "service_q70ivne",
-        "template_4uark1h",
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         form.current,
         {
-          publicKey: "0iupQKOvHiwm3mHaq",
+          publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
         }
       );
       
