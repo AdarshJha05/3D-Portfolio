@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link as LinkR } from "react-router-dom";
 import styled, { useTheme } from "styled-components";
 import { Bio } from "../data/constants";
-import { MenuRounded } from "@mui/icons-material";
+import { MenuRounded, WbSunnyRounded, DarkModeRounded } from "@mui/icons-material";
 
 const Nav = styled.div`
   background-color: ${({ theme }) => theme.bg};
@@ -14,7 +14,20 @@ const Nav = styled.div`
   position: sticky;
   top: 0;
   z-index: 10;
-  color: white;
+  z-index: 10;
+  color: ${({ theme }) => theme.text_primary};
+`;
+
+const ThemeToggle = styled.div`
+  color: ${({ theme }) => theme.text_primary};
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    color: ${({ theme }) => theme.primary};
+  }
 `;
 
 const NavbarContainer = styled.div`
@@ -126,7 +139,7 @@ const MobileMenu = styled.ul`
   z-index: ${({ isOpen }) => (isOpen ? "1000" : "-1000")};
 `;
 
-const Navbar = () => {
+const Navbar = ({ darkMode, setDarkMode }) => {
   const [isOpen, setIsOpen] = useState(false);
   const theme = useTheme();
   return (
@@ -163,6 +176,10 @@ const Navbar = () => {
             <NavLink onClick={() => setIsOpen(!isOpen)} href="#Education">
               Education
             </NavLink>
+            <ThemeToggle onClick={() => setDarkMode(!darkMode)} style={{ marginBottom: "16px" }}>
+              {darkMode ? <WbSunnyRounded /> : <DarkModeRounded />}
+              <span style={{ marginLeft: "8px" }}>Toggle Theme</span>
+            </ThemeToggle>
             <GithubButton
               href={Bio.github}
               target="_Blank"
@@ -177,6 +194,9 @@ const Navbar = () => {
         )}
 
         <ButtonContainer>
+          <ThemeToggle onClick={() => setDarkMode(!darkMode)} style={{ marginRight: "16px" }}>
+            {darkMode ? <WbSunnyRounded /> : <DarkModeRounded />}
+          </ThemeToggle>
           <GithubButton href={Bio.github} target="_Blank">
             Github Profile
           </GithubButton>

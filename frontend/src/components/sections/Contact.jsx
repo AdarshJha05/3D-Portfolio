@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import styled from "styled-components";
-import axios from "axios";
+import emailjs from "@emailjs/browser";
 
 const Container = styled.div`
   display: flex;
@@ -50,8 +50,8 @@ const ContactForm = styled.form`
   max-width: 600px;
   display: flex;
   flex-direction: column;
-  background-color: rgba(17, 25, 40, 0.83);
-  border: 1px solid rgba(255, 255, 255, 0.125);
+  background-color: ${({ theme }) => theme.card};
+  border: 1px solid ${({ theme }) => theme.text_secondary + 50};
   padding: 32px;
   border-radius: 12px;
   box-shadow: rgba(23, 92, 230, 0.1) 0px 4px 24px;
@@ -114,27 +114,25 @@ const Contact = () => {
 //   message: "",
 // });
   const handelSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  const formValues = new FormData(form.current);
-
-  const data = {
-    from_email: formValues.get("from_email"),
-    from_name: formValues.get("from_name"),
-    subject: formValues.get("subject"),
-    message: formValues.get("message"),
+    try {
+      const res = await emailjs.sendForm(
+        "service_q70ivne",
+        "template_4uark1h",
+        form.current,
+        {
+          publicKey: "0iupQKOvHiwm3mHaq",
+        }
+      );
+      
+      alert("Message Sent Successfully!");
+      form.current.reset();
+    } catch (error) {
+      console.error(error);
+      alert("Failed to send message: " + (error.text || error.message || JSON.stringify(error)));
+    }
   };
-
-  try {
-    const res = await axios.post("http://localhost:5000/api/contact", data);
-
-    alert(res.data.message);
-    form.current.reset();
-  } catch (error) {
-    console.error(error);
-    alert("Failed to send message");
-  }
-};
   return (
     <Container id="Education">
       <Wrapper>
@@ -147,12 +145,13 @@ const Contact = () => {
           Feel free to reach out to me for any questions or opportunities!
         </Desc>
         <ContactForm ref={form} onSubmit={handelSubmit}>
-          <ContactTitle>Email Me 🚀</ContactTitle>
-          <ContactInput placeholder="Your Email" name="from_email" />
-          <ContactInput placeholder="Your Name" name="from_name" />
-          <ContactInput placeholder="Subject" name="subject" />
-          <ContactInputMessage placeholder="Message" name="message" rows={4} />
-          <ContactButton type="submit" value="Send" />
+          <ContactTitle>Let's Connect</ContactTitle>
+          <ContactInput type="email" placeholder="Your Email Address" name="from_email" required />
+          <ContactInput placeholder="Your Full Name" name="from_name" required />
+          <ContactInput placeholder="Company / Organization (Optional)" name="company" />
+          <ContactInput placeholder="Subject" name="subject" required />
+          <ContactInputMessage placeholder="How can I help you?" name="message" rows={5} required />
+          <ContactButton type="submit" value="Send Message" />
         </ContactForm>
       </Wrapper>
     </Container>

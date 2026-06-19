@@ -2,10 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { Bio } from "../../data/constants";
 import {
-  FacebookRounded,
   Instagram,
   LinkedIn,
-  Twitter,
+  X,
 } from "@mui/icons-material";
 
 const FooterContainer = styled.div`
@@ -93,11 +92,8 @@ const Footer = () => {
           <NavLink href="#Education">Education</NavLink>
         </Nav>
         <SocialMediaIcons>
-          <SocialMediaIcon href={Bio.facebook} target="display">
-            <FacebookRounded />
-          </SocialMediaIcon>
           <SocialMediaIcon href={Bio.twitter} target="display">
-            <Twitter />
+            <X />
           </SocialMediaIcon>
           <SocialMediaIcon href={Bio.linkedin} target="display">
             <LinkedIn />

@@ -1,15 +1,18 @@
 import styled, { ThemeProvider } from "styled-components";
-import { darkTheme } from "./utils/Themes";
+import { darkTheme, lightTheme } from "./utils/Themes";
+import { lazy, Suspense, useState } from "react";
 import Navbar from "./components/Navbar";
 import { BrowserRouter } from "react-router-dom";
 import Hero from "./components/sections/Hero";
-import Skills from "./components/sections/Skills";
-import Experience from "./components/sections/Experience";
-import Education from "./components/sections/Education";
 import StartCanvas from "./components/canvas/Stars";
-import Projects from "./components/sections/Projects";
-import Contact from "./components/sections/Contact";
 import Footer from "./components/sections/Footer";
+import { Loader } from "@react-three/drei";
+
+const Skills = lazy(() => import("./components/sections/Skills"));
+const Experience = lazy(() => import("./components/sections/Experience"));
+const Education = lazy(() => import("./components/sections/Education"));
+const Projects = lazy(() => import("./components/sections/Projects"));
+const Contact = lazy(() => import("./components/sections/Contact"));
 
 const Body = styled.div`
   background-color: ${({ theme }) => theme.bg};
@@ -35,27 +38,32 @@ const Wrapper = styled.div`
 `;
 
 function App() {
+  const [darkMode, setDarkMode] = useState(true);
+
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <BrowserRouter>
-        <Navbar />
+        <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
         <Body>
           <StartCanvas />
           <div>
             <Hero />
-            <Wrapper>
-              <Skills />
-              <Experience />
-            </Wrapper>
-            <Projects />
-            <Wrapper>
-              <Education />
-              <Contact />
-            </Wrapper>
+            <Suspense fallback={<div>Loading...</div>}>
+              <Wrapper>
+                <Skills />
+                <Experience />
+              </Wrapper>
+              <Projects />
+              <Wrapper>
+                <Education />
+                <Contact />
+              </Wrapper>
+            </Suspense>
             <Footer />
           </div>
         </Body>
       </BrowserRouter>
+      <Loader />
     </ThemeProvider>
   );
 }

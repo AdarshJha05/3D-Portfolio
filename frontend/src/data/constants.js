@@ -41,12 +41,12 @@ export const skills = [
       {
         name: "CSS",
         image:
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1452px-CSS3_logo_and_wordmark.svg.png",
+          "https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg",
       },
       {
         name: "JavaScript",
         image:
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/800px-JavaScript-logo.png",
+          "https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg",
       },
       {
         name: "Bootstrap",
@@ -108,12 +108,12 @@ export const skills = [
       {
         name: "VS Code",
         image:
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/512px-Visual_Studio_Code_1.35_icon.svg.png?20210804221519",
+          "https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg",
       },
       {
         name: "Postman",
         image:
-          "https://static-00.iconduck.com/assets.00/postman-icon-497x512-beb7sy75.png",
+          "https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg",
       },
       {
         name: "Figma",
@@ -127,7 +127,7 @@ export const skills = [
 export const experiences = [
   {
     id: 0,
-    img: "https://firebasestorage.googleapis.com/v0/b/flexi-coding.appspot.com/o/neurobit.jpeg?alt=media&token=1cacbb7b-e5ea-4efb-9b3d-f5a31b9564ad",
+    img: "/chemcatalyzer-logo.svg",
     role: "Fullstack Developer Intern(Remote)",
     company: "ChemCatalyzer",
     date: "August 2024 - June 2025",
@@ -147,7 +147,7 @@ export const experiences = [
   },
   {
     id: 1,
-    img: "https://firebasestorage.googleapis.com/v0/b/flexi-coding.appspot.com/o/flipr.jpeg?alt=media&token=1d72532a-45eb-4c1a-a81a-c9bed9fec543",
+    img: "/chemcatalyzer-logo.svg",
     role: "Fullstack Developer (Remote)",
     company: "ChemCatalyzer",
     date: "July 2025 - February 2026",
@@ -174,7 +174,7 @@ export const experiences = [
 export const education = [
   {
     id: 0,
-    img: "https://firebasestorage.googleapis.com/v0/b/flexi-coding.appspot.com/o/Kiit.jpeg?alt=media&token=3839d520-c59d-4341-ad8f-0980c98de4dd",
+    img: "/muit-logo.png",
     school: "Maharishi Institute of Information and Technology, Noida",
     date: "Oct 2022 - June 2026",
     grade: "8.31 CGPA",
@@ -183,7 +183,7 @@ export const education = [
   },
   {
     id: 1,
-    img: "https://firebasestorage.googleapis.com/v0/b/flexi-coding.appspot.com/o/methodist.png?alt=media&token=018a1b18-e2dd-4f34-8855-cff1b6b69fd3",
+    img: "/ssps-logo.png",
     school: "S S Public School, Noida",
     date: "August 2020 - June 2022",
     grade: "81%",
@@ -200,7 +200,7 @@ export const projects = [
     description:
       "Developed a full-stack portfolio website using React Three Fiber and Three.js to create an interactive 3D experience. The website features a visually engaging design with smooth animations and transitions, showcasing projects and skills in a unique way.",
     image:
-      "https://github.com/AdarshJha05/3D-Portfolio/blob/main/public/portfolioImage.png?raw=true",
+      "/portfolioImage.png",
     tags: ["React Js", "MongoDb", "Node Js", "Express Js", "Three.js", "JWT", "React Three Fiber", "Firebase"],
     category: "web app",
     github: "https://github.com/AdarshJha05/3D-Portfolio",
@@ -208,12 +208,12 @@ export const projects = [
   },
   {
     id: 1,
-    title: "Tomato",
+    title: "CraveBite",
     date: "Jul 2024 - Sep 2024",
     description:
       "A dynamic and user-friendly e-commerce website. This project aims to provide a seamless online food ordering experience for users, featuring a responsive design for optimal viewing across devices.",
     image:
-      "https://github.com/AdarshJha05/3D-Portfolio/blob/main/public/foodApp.png?raw=true",
+      "/foodApp.png",
     tags: [
       "JavaScript",
       "React Js",
@@ -235,7 +235,7 @@ export const projects = [
     description:
       "A real-time chat app with private messaging, user authentication, live typing indicators, and a responsive UI for both desktop and mobile devices.",
     image:
-      "https://github.com/AdarshJha05/3D-Portfolio/blob/main/public/chatApp.png?raw=true",
+      "/chatApp.png",
     tags: [
       "JavaScript",
       "React Js",
