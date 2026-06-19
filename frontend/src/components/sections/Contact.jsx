@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import emailjs from "@emailjs/browser";
 
@@ -102,19 +102,35 @@ const ContactButton = styled.input`
   color: ${({ theme }) => theme.text_primary};
   font-size: 18px;
   font-weight: 600;
+  cursor: pointer;
+  &:disabled {
+    background: hsla(271, 100%, 50%, 0.5);
+    cursor: not-allowed;
+  }
 `;
 
 const Contact = () => {
   const form = useRef();
+  const [isSending, setIsSending] = useState(false);
 
-//   const [formData, setFormData] = useState({
-//   from_email: "",
-//   from_name: "",
-//   subject: "",
-//   message: "",
-// });
   const handelSubmit = async (e) => {
     e.preventDefault();
+
+    // Rate Limiting: Prevent more than 1 email every 5 minutes
+    const lastSentStr = localStorage.getItem("lastEmailSent");
+    if (lastSentStr) {
+      const lastSentTime = new Date(lastSentStr).getTime();
+      const now = new Date().getTime();
+      const minutesPassed = (now - lastSentTime) / (1000 * 60);
+
+      if (minutesPassed < 5) {
+        const minutesLeft = Math.ceil(5 - minutesPassed);
+        alert(`For spam prevention, please wait ${minutesLeft} minute(s) before sending another message.`);
+        return;
+      }
+    }
+
+    setIsSending(true);
 
     try {
       const res = await emailjs.sendForm(
@@ -126,11 +142,14 @@ const Contact = () => {
         }
       );
       
+      localStorage.setItem("lastEmailSent", new Date().toISOString());
       alert("Message Sent Successfully!");
       form.current.reset();
     } catch (error) {
       console.error(error);
       alert("Failed to send message: " + (error.text || error.message || JSON.stringify(error)));
+    } finally {
+      setIsSending(false);
     }
   };
   return (
@@ -151,7 +170,11 @@ const Contact = () => {
           <ContactInput placeholder="Company / Organization (Optional)" name="company" />
           <ContactInput placeholder="Subject" name="subject" required />
           <ContactInputMessage placeholder="How can I help you?" name="message" rows={5} required />
-          <ContactButton type="submit" value="Send Message" />
+          <ContactButton 
+            type="submit" 
+            value={isSending ? "Sending..." : "Send Message"} 
+            disabled={isSending} 
+          />
         </ContactForm>
       </Wrapper>
     </Container>
