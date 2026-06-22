@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link as LinkR } from "react-router-dom";
 import styled, { useTheme } from "styled-components";
 import { Bio } from "../data/constants";
-import { MenuRounded, WbSunnyRounded, DarkModeRounded } from "@mui/icons-material";
+import { MenuRounded, WbSunnyRounded, DarkModeRounded, CloseRounded } from "@mui/icons-material";
 
 const Nav = styled.div`
   background-color: ${({ theme }) => theme.bg};
@@ -42,10 +42,22 @@ const NavbarContainer = styled.div`
 const NavLogo = styled(LinkR)`
   width: 80%;
   padding: 0 6px;
-  font-weight: 500;
-  font-size: 18px;
+  font-weight: 700;
+  font-size: 22px;
   text-decoration: none;
-  color: inherit;
+  background: linear-gradient(
+    225deg,
+    hsla(271, 100%, 50%, 1) 0%,
+    hsla(294, 100%, 50%, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 
 const NavItems = styled.ul`
@@ -105,13 +117,12 @@ const GithubButton = styled.a`
 `;
 
 const MobileIcon = styled.div`
-  height: 100%;
-  display: flex;
-  align-items: center;
-  color: ${({ theme }) => theme.text_primary};
   display: none;
   @media screen and (max-width: 768px) {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: ${({ theme }) => theme.text_primary};
   }
 `;
 
@@ -147,8 +158,21 @@ const Navbar = ({ darkMode, setDarkMode }) => {
       <NavbarContainer>
         <NavLogo to="/">Adarsh's Portfolio</NavLogo>
 
-        <MobileIcon onClick={() => setIsOpen(!isOpen)}>
-          <MenuRounded style={{ color: "inherit" }} />
+        <MobileIcon>
+          <ThemeToggle onClick={() => setDarkMode(!darkMode)}>
+            {darkMode ? <WbSunnyRounded /> : <DarkModeRounded />}
+          </ThemeToggle>
+          {isOpen ? (
+            <CloseRounded 
+              style={{ color: "inherit", cursor: "pointer" }} 
+              onClick={() => setIsOpen(!isOpen)} 
+            />
+          ) : (
+            <MenuRounded 
+              style={{ color: "inherit", cursor: "pointer" }} 
+              onClick={() => setIsOpen(!isOpen)} 
+            />
+          )}
         </MobileIcon>
 
         <NavItems>
@@ -176,10 +200,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
             <NavLink onClick={() => setIsOpen(!isOpen)} href="#Education">
               Education
             </NavLink>
-            <ThemeToggle onClick={() => setDarkMode(!darkMode)} style={{ marginBottom: "16px" }}>
-              {darkMode ? <WbSunnyRounded /> : <DarkModeRounded />}
-              <span style={{ marginLeft: "8px" }}>Toggle Theme</span>
-            </ThemeToggle>
+
             <GithubButton
               href={Bio.github}
               target="_Blank"

@@ -2,6 +2,8 @@ export const Bio = {
   name: "Adarsh Kumar Jha",
   roles: [
     "Full Stack Developer",
+    "DevOps Engineer",
+    "Software Developer",
     "Programmer",
   ],
   description:
@@ -120,6 +122,16 @@ export const skills = [
         image:
           "https://s3-alpha.figma.com/hub/file/1481185752/fa4cd070-6a79-4e1b-b079-8b9b76408595-cover.png",
       },
+      {
+        name: "Power BI",
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg",
+      },
+      {
+        name: "Jupyter Notebook",
+        image:
+          "https://upload.wikimedia.org/wikipedia/commons/3/38/Jupyter_logo.svg",
+      },
     ],
   },
 ];
@@ -201,7 +213,7 @@ export const projects = [
       "Developed a full-stack portfolio website using React Three Fiber and Three.js to create an interactive 3D experience. The website features a visually engaging design with smooth animations and transitions, showcasing projects and skills in a unique way.",
     image:
       "/portfolioImage.png",
-    tags: ["React Js", "MongoDb", "Node Js", "Express Js", "Three.js", "JWT", "React Three Fiber", "Firebase"],
+    tags: ["React Js", "Three.js", "React Three Fiber", "EmailJS", "Vite", "Styled Components"],
     category: "web app",
     github: "https://github.com/AdarshJha05/3D-Portfolio",
     webapp: "/",

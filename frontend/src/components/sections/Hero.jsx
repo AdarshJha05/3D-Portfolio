@@ -40,6 +40,7 @@ const HeroInnerContainer = styled.div`
 
   @media (max-width: 960px) {
     flex-direction: column;
+    gap: 32px;
   }
 `;
 const HeroLeftContainer = styled.div`
@@ -64,7 +65,7 @@ const HeroRightContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-contents: center;
+    justify-content: center;
     margin-bottom: 80px;
   }
 
@@ -163,10 +164,10 @@ const ResumeButton = styled.a`
   font-size: 20px;
 
      &:hover {
-        transform: scale(1.05);
-    transition: all 0.4s ease-in-out;
-    box-shadow:  20px 20px 60px #1F2634,
-    filter: brightness(1);
+        transform: scale(1.04);
+        transition: all 0.4s ease-in-out;
+        box-shadow: 20px 20px 60px #1F2634, -20px -20px 60px #1F2634;
+        filter: brightness(1.1);
     }    
     
     

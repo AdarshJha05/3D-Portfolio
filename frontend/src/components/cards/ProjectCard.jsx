@@ -2,8 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 const Card = styled.div`
-  width: 330px;
-  height: 490px;
+  width: 100%;
+  max-width: 330px;
+  height: 100%;
   background-color: ${({ theme }) => theme.card};
   cursor: pointer;
   border-radius: 10px;
@@ -23,6 +24,7 @@ const Card = styled.div`
 const Image = styled.img`
   width: 100%;
   height: 180px;
+  object-fit: cover;
   background-color: ${({ theme }) => theme.white};
   border-radius: 10px;
   box-shadow: 0 0 16px 2px rgba(0, 0, 0, 0.3);
@@ -34,6 +36,14 @@ const Tags = styled.div`
   flex-wrap: wrap;
   gap: 8px;
   margin-top: 4px;
+`;
+const Tag = styled.span`
+  font-size: 12px;
+  font-weight: 400;
+  color: ${({ theme }) => theme.primary};
+  background-color: ${({ theme }) => theme.primary + 15};
+  padding: 2px 8px;
+  border-radius: 10px;
 `;
 const Details = styled.div`
   width: 100%;
@@ -99,15 +109,19 @@ const ProjectCard = ({ project }) => {
   return (
     <Card>
       <Image src={project.image} />
-      <Tags></Tags>
+      <Tags>
+        {project.tags?.map((tag, index) => (
+          <Tag key={index}>{tag}</Tag>
+        ))}
+      </Tags>
       <Details>
         <Title>{project.title}</Title>
         <Date>{project.date}</Date>
         <Description>{project.description}</Description>
       </Details>
       <Members>
-        {project.member?.map((member) => (
-          <Avatar src={member.img} />
+        {project.member?.map((member, index) => (
+          <Avatar key={index} src={member.img} />
         ))}
       </Members>
       <Button href={project.github} target="_blank">

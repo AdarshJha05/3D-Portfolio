@@ -1,8 +1,8 @@
-import{Ct as e,Et as t,gt as n,ht as r,wt as i}from"./index-BKFgUvAR.js";t();var a=n(),o=i.div`
+import{Ct as e,Et as t,gt as n,ht as r,wt as i}from"./index-BpqCbqzH.js";t();var a=n(),o=i.div`
   display: flex;
   flex-direction: column;
-  justify-contnet: center;
-  position: rlative;
+  justify-content: center;
+  position: relative;
   z-index: 1;
   align-items: center;
 `,s=i.div`
@@ -94,4 +94,4 @@ import{Ct as e,Et as t,gt as n,ht as r,wt as i}from"./index-BKFgUvAR.js";t();var
 `,h=i.img`
   width: 24px;
   height: 24px;
-`,g=()=>(0,a.jsx)(o,{id:`Skills`,children:(0,a.jsxs)(s,{children:[(0,a.jsx)(c,{children:`Skills`}),(0,a.jsx)(l,{style:{marginBottom:`40px`},children:`Here are some of my skills on which I have been working on for the past 3 years.`}),(0,a.jsx)(u,{children:e.map((e,t)=>(0,a.jsx)(r,{children:(0,a.jsxs)(d,{children:[(0,a.jsx)(f,{children:e.title}),(0,a.jsx)(p,{children:e.skills.map((e,t)=>(0,a.jsxs)(m,{children:[(0,a.jsx)(h,{src:e.image}),e.name]},`skill-x-${t}`))})]},`skill-${t}`)}))})]})});export{g as default};
+`,g=()=>(0,a.jsx)(o,{id:`Skills`,children:(0,a.jsxs)(s,{children:[(0,a.jsx)(c,{children:`Skills`}),(0,a.jsx)(l,{style:{marginBottom:`40px`},children:`Here are some of my skills on which I have been working on for the past 3 years.`}),(0,a.jsx)(u,{children:e.map((e,t)=>(0,a.jsx)(r,{children:(0,a.jsxs)(d,{children:[(0,a.jsx)(f,{children:e.title}),(0,a.jsx)(p,{children:e.skills.map((e,t)=>(0,a.jsxs)(m,{children:[(0,a.jsx)(h,{src:e.image}),e.name]},`skill-x-${t}`))})]})},`skill-${t}`))})]})});export{g as default};
